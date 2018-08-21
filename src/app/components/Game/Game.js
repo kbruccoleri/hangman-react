@@ -50,7 +50,7 @@ class Game extends React.Component {
 
         // If we have already guessed this letter, or if its an invalid letter, abort.
         let alreadyGuessed = this.state.incorrectLetters.indexOf(guess) !== -1;
-        let invalidLetter = !/[A-Z]|[a-z]/.test(guess);
+        let invalidLetter = !/^([A-Z]|[a-z])$/.test(guess);
         if (alreadyGuessed || invalidLetter)
         {
             return;
