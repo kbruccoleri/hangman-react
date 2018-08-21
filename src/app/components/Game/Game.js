@@ -18,22 +18,12 @@ class Game extends React.Component {
     }
 
     hasPhrase() {
-        return this.state.phrase != null &&
-            this.state.phrase.length > 0;
+        return this.state.phrase != null && this.state.phrase.length > 0;
     }
 
     phraseCompleted() {
-        // Check if any characters remain hidden.
-        for (let i = 0; i < this.state.hiddenChars.length; i++) {
-            // If this character is hidden, then the phrase is incomplete.
-            if (this.state.hiddenChars[i])
-            {
-                return false;
-            }
-        }
-        return true;
+        return this.state.hiddenChars.indexOf(true) !== -1;
     }
-
 
     hasRemainingTries() {
         return this.state.remainingTries > 0;
