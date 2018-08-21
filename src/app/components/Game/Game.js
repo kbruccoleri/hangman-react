@@ -22,7 +22,7 @@ class Game extends React.Component {
     }
 
     phraseCompleted() {
-        return this.state.hiddenChars.indexOf(true) !== -1;
+        return this.state.hiddenChars.indexOf(true) === -1;
     }
 
     hasRemainingTries() {
