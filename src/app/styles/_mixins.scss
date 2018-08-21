@@ -1,0 +1,7 @@
+
+@mixin container-styles {
+    margin-left: auto;
+    margin-right: auto;
+    width: $container-width;
+    text-align: center;
+}

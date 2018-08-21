@@ -1,0 +1,32 @@
+.game--info {
+    .remaining-tries--container {
+
+        font-weight: 700;
+
+        .remaining-tries--description,
+        .remaining-tries {
+            vertical-align: middle;
+        }
+
+        .remaining-tries--description {
+            margin-right: 10px;
+        }
+
+        .remaining-tries {
+
+            font-size: 35px;
+
+            &.remaining-tries--danger {
+                color: $red;
+            }
+
+            &.remaining-tries--warning {
+                color: $orange;
+            }
+
+            &.remaining-tries--safe {
+                color: $light-green;
+            }
+        }
+    }
+}

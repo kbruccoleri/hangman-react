@@ -1,0 +1,31 @@
+.game-over--container {
+
+    @include container-styles;
+
+    .game-over--result-message {
+        &.victory {
+            color: $light-green;
+        }
+
+        &.defeat {
+            color: $red;
+        }
+    }
+
+    .retry-button {
+
+        /* TODO: modularize button styles */
+
+        color: #fff;
+        background: linear-gradient(#09f, #05f);
+
+        font-size: 18px;
+
+        width: 100%;
+        padding: 10px 0;
+
+        display: block;
+        border: none;
+        border-radius: 5px;
+    }
+}
