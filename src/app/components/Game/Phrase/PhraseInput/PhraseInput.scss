@@ -1,0 +1,29 @@
+.phrase--container {
+
+    @include container-styles;
+
+    .phrase--input {
+        resize: none;
+        box-sizing: border-box;
+        height: 100px;
+        width: 100%;
+        border-style: solid;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .phrase--submit {
+        color: #fff;
+        background: linear-gradient(#09f, #05f);
+
+        font-size: 18px;
+
+        width: 100%;
+        padding: 10px 0;
+
+        display: block;
+        border: none;
+        border-radius: 5px;
+    }
+}
