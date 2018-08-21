@@ -2,6 +2,7 @@ import React from "react";
 import PhraseInput from "./Phrase/PhraseInput/PhraseInput";
 import GameOver from "./GameOver/GameOver";
 import GameContainer from "./GameContainer/GameContainer";
+import Utils from "../../../utils/Utils.js";
 
 const initialState = {
     phrase: '',
@@ -14,7 +15,7 @@ class Game extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = initialState;
+        this.state = Utils.deepCopy(initialState);
     }
 
     hasPhrase() {
