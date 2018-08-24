@@ -2,6 +2,7 @@ import React from 'react';
 import RemainingTries from "./RemainingTries/RemainingTries";
 import IncorrectGuesses from "./IncorrectGuesses/IncorrectGuesses";
 import SecretPhrase from "../Phrase/SecretPhrase/SecretPhrase";
+import './GameContainer.scss';
 
 class GameContainer extends React.Component {
 
@@ -28,9 +29,9 @@ class GameContainer extends React.Component {
             <div className="game--container">
                 <div className="game--info">
                     <RemainingTries remainingTries={this.props.remainingTries} />
+                    <SecretPhrase phrase={this.props.phrase} hiddenChars={this.props.hiddenChars}/>
                     <IncorrectGuesses incorrectLetters={this.props.incorrectLetters} />
                 </div>
-                <SecretPhrase phrase={this.props.phrase} hiddenChars={this.props.hiddenChars}/>
             </div>
         );
     }

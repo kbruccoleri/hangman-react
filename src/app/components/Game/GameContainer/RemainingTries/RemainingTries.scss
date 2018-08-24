@@ -1,6 +1,11 @@
 .game--info {
+
+    display: inline-block;
+    margin: auto;
+
     .remaining-tries--container {
 
+        display: inline-block;
         font-weight: 700;
 
         .remaining-tries--description,
