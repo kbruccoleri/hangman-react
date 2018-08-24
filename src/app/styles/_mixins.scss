@@ -5,3 +5,18 @@
     width: $container-width;
     text-align: center;
 }
+
+@mixin button-styles {
+    color: #fff;
+    background: linear-gradient(#09f, #05f);
+
+    font-size: 18px;
+    text-align: center;
+
+    width: 100%;
+    padding: 10px 0;
+
+    display: block;
+    border: none;
+    border-radius: 5px;
+}

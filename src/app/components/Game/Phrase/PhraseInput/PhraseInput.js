@@ -1,5 +1,6 @@
 import React from "react";
 import "./PhraseInput.scss"
+import HoverScaleButton from "../../../Base/HoverScaleButton";
 
 class PhraseInput extends React.Component {
 
@@ -38,7 +39,7 @@ class PhraseInput extends React.Component {
                           onKeyPress={this.handleKeyPress}
                           onChange={this.handleChange}
                           value={this.state.value} autoFocus="true"/>
-                <input className="phrase--submit" type="submit" value="Enter" />
+                <HoverScaleButton className="phrase--submit" type="submit" value="Enter" />
             </form>
         );
     }
