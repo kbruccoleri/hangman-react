@@ -48,23 +48,24 @@ class Game extends React.Component {
 
     makeGuess(guess) {
 
+        // Defensive copy
+        let phrase = this.state.phrase;
+        let hiddenChars = this.state.hiddenChars;
+        let remainingTries = this.state.remainingTries;
+        let incorrectLetters = this.state.incorrectLetters;
+
         // If we have already guessed this letter, or if its an invalid letter, abort.
-        let alreadyGuessed = this.state.incorrectLetters.indexOf(guess) !== -1;
+        let alreadyGuessed = incorrectLetters.indexOf(guess) !== -1;
         let invalidLetter = !/^([A-Z]|[a-z])$/.test(guess);
         if (alreadyGuessed || invalidLetter)
         {
             return;
         }
 
-        // Defensive copy
-        let hiddenChars = this.state.hiddenChars;
-        let remainingTries = this.state.remainingTries;
-        let incorrectLetters = this.state.incorrectLetters;
-
         // Find both lower/upper case matches.
         let foundMatch = false;
-        for (let i = 0; i < this.state.phrase.length; i++) {
-            if (this.state.phrase[i].toLowerCase() === guess.toLowerCase()) {
+        for (let i = 0; i < phrase.length; i++) {
+            if (phrase[i].toLowerCase() === guess.toLowerCase()) {
                 hiddenChars[i] = false;
                 foundMatch = true;
             }
