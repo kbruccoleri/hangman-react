@@ -108,7 +108,7 @@ class Game extends React.Component {
             return (
                 <GameOver phrase={this.state.phrase}
                           victory={this.phraseCompleted()}
-                          reset={() => this.setState(initialState)}/>
+                          reset={() => this.setState(Utils.deepCopy(initialState))} />
             );
         }
     }
