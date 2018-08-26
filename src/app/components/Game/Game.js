@@ -3,6 +3,8 @@ import PhraseInput from "./Phrase/PhraseInput/PhraseInput";
 import GameOver from "./GameOver/GameOver";
 import GameContainer from "./GameContainer/GameContainer";
 import Utils from "../../../utils/Utils.js";
+import {PoseGroup} from "react-pose";
+import FadeItem from "../Base/FadeItem";
 
 const initialState = {
     phrase: '',
@@ -85,32 +87,45 @@ class Game extends React.Component {
 
     render() {
 
+        let currentView;
         // If we have no answer, render an input to get the answer.
         if (!this.hasPhrase()) {
-            return (
-                <PhraseInput submit={phrase => this.setPhrase(phrase) }/>
+            currentView = (
+                <FadeItem key="phrase-input">
+                    <PhraseInput submit={phrase => this.setPhrase(phrase) }/>
+                </FadeItem>
             );
         }
         // If we have remaining tries and we didn't win.
         else if (this.hasRemainingTries() && !this.phraseCompleted()) {
 
-            return (
-                <GameContainer remainingTries={this.state.remainingTries}
-                               incorrectLetters={this.state.incorrectLetters}
-                               phrase={this.state.phrase}
-                               hiddenChars={this.state.hiddenChars}
-                               makeGuess={guess => this.makeGuess(guess)}
-                />
+            currentView = (
+                <FadeItem key="game-container">
+                    <GameContainer remainingTries={this.state.remainingTries}
+                                   incorrectLetters={this.state.incorrectLetters}
+                                   phrase={this.state.phrase}
+                                   hiddenChars={this.state.hiddenChars}
+                                   makeGuess={guess => this.makeGuess(guess)}
+                    />
+                </FadeItem>
             );
         }
         else
         {
-            return (
-                <GameOver phrase={this.state.phrase}
+            currentView = (
+                <FadeItem key="game-over">
+                    <GameOver phrase={this.state.phrase}
                           victory={this.phraseCompleted()}
                           reset={() => this.setState(Utils.deepCopy(initialState))} />
+                </FadeItem>
             );
         }
+
+        return (
+            <PoseGroup>
+                {currentView}
+            </PoseGroup>
+        );
     }
 }
 
